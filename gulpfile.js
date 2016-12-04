@@ -47,9 +47,9 @@ gulp.task('sass', function () {
 gulp.task('watch', function() {
   gulp.watch(paths.jsSource, ['js']);
   gulp.watch(paths.sassSource, ['sass']);
-//   gulp.watch(paths.sassSource, ['sass']); //Uncomment if using Less
+//   gulp.watch(paths.sassSource, ['less']); //Uncomment if using Less
 });
 
 // RUN DEFAULT TASK - first thing to run when gulp is called
 // ============================================================
-gulp.task('default', ['watch', 'js', 'sass']); //Add 'sass' to array if using sass and less or replace 'sass' with 'less' if only using Less
+gulp.task('default', ['watch', 'js', 'sass']); //Add 'less' to array if using sass and less or replace 'sass' with 'less' if only using Less
