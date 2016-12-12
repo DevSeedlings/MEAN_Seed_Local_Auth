@@ -3,6 +3,9 @@ var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/UserModel');
 
+// ***********************************************
+// USE THIS PASSPORT.USE FOR LOGGING IN WITH EMAIL
+// ***********************************************
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
@@ -15,6 +18,22 @@ passport.use(new LocalStrategy({
     return done(null, false);
   });
 }));
+
+// **************************************************
+// USE THIS PASSPORT.USE FOR LOGGING IN WITH USERNAME
+// **************************************************
+// passport.use(new LocalStrategy({
+//   usernameField: 'username',
+//   passwordField: 'password'
+// }, function(username, password, done) {
+//   User.findOne({ username: username })
+//   .exec(function(err, user) {
+//     if(err) done(err);
+//     if(!user) return done(null, false);
+//     if(user.verifyPassword(password)) return done(null, user);
+//     return done(null, false);
+//   });
+// }));
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);

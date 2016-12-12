@@ -1,17 +1,17 @@
 // EXTERNAL MODULES //
-var express = require('express');
+var express    = require('express');
 var bodyParser = require('body-parser');
-var session = require('express-session');
-var mongoose = require('mongoose');
+var session    = require('express-session');
+var mongoose   = require('mongoose');
 
 // CONFIG //
-var config = require('./config');
+var config     = require('./config');
 
 // CONTROLLERS //
-var UserCtrl = require('./controllers/UserCtrl');
+var UserCtrl   = require('./controllers/UserCtrl');
 
 // SERVICES //
-var passport = require('./services/passport');
+var passport   = require('./services/passport');
 
 
 // POLICIES //
@@ -19,7 +19,6 @@ var isAuthed = function(req, res, next) {
   if (!req.isAuthenticated()) return res.status(401).send();
   return next();
 };
-
 
 // EXPRESS //
 var app = express();
@@ -53,7 +52,7 @@ app.put('/user/:_id', isAuthed, UserCtrl.update);
 
 // CONNECTIONS //
 var mongoURI = config.MONGO_URI;
-var port = config.PORT;
+var port     = config.PORT;
 
 mongoose.connect(mongoURI);
 mongoose.connection.once('open', function() {
