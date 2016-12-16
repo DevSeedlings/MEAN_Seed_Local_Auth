@@ -1,4 +1,4 @@
-angular.module("app").controller("loginCtrl", function($scope, authService, $state) {
+angular.module('app').controller('loginCtrl', function($scope, authService, $state) {
 
   $scope.login = function(user) {
     authService.login(user).then(function(response) {
