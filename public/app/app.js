@@ -9,11 +9,13 @@ var app = angular.module('app', ['ui.router'])
       url: "/",
       templateUrl: "./app/routes/home/homeTmpl.html",
       controller: 'homeCtrl'
-    }).state('login', {
+    })
+    .state('login', {
       url: '/login',
       templateUrl: './app/routes/login/loginTmpl.html',
       controller: 'loginCtrl'
-    }).state('profile', {
+    })
+    .state('profile', {
       url: '/profile',
       templateUrl: './app/routes/profile/profileTmpl.html',
       controller: 'profileCtrl',

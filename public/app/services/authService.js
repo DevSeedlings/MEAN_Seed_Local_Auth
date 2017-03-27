@@ -1,4 +1,4 @@
-angular.module("app").service("authService", function($http) {
+angular.module('app').service('authService', function($http) {
 
   this.login = function(user) {
     // this first endpoint passes to server/services/passport.js and checks for 

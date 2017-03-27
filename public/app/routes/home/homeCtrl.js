@@ -1,4 +1,4 @@
 angular.module('app').controller('homeCtrl', function($scope) {
-  $scope.hello = 'Hello World!';
+  $scope.hello = 'No. 5 is ALIVE!!';
   
 });
