@@ -22,18 +22,18 @@ passport.use(new LocalStrategy({
 // **************************************************
 // USE THIS PASSPORT.USE FOR LOGGING IN WITH USERNAME
 // **************************************************
-// passport.use(new LocalStrategy({
-//   usernameField: 'username',
-//   passwordField: 'password'
-// }, function(username, password, done) {
-//   User.findOne({ username: username })
-//   .exec(function(err, user) {
-//     if(err) done(err);
-//     if(!user) return done(null, false);
-//     if(user.verifyPassword(password)) return done(null, user);
-//     return done(null, false);
-//   });
-// }));
+passport.use(new LocalStrategy({
+  usernameField: 'username',
+  passwordField: 'password'
+}, function(username, password, done) {
+  User.findOne({ username: username })
+  .exec(function(err, user) {
+    if(err) done(err);
+    if(!user) return done(null, false);
+    if(user.verifyPassword(password)) return done(null, user);
+    return done(null, false);
+  });
+}));
 
 passport.serializeUser(function(user, done) {
   done(null, user._id);

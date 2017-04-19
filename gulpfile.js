@@ -8,6 +8,7 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 //var less = require('gulp-less'); //Uncomment if using Less
 var babel = require('gulp-babel');
+var sourcemaps = require('gulp-sourcemaps');
 
 // DECLARE FILE PATHS
 // ============================================================
@@ -21,6 +22,7 @@ var paths = {
 // ============================================================
 gulp.task('js', function() {
   return gulp.src(paths.jsSource)
+  pipe(sourcemaps.init())
   //.pipe(babel()) //Uncomment if using ES6
   .pipe(concat('bundle.js'))
   .pipe(annotate())

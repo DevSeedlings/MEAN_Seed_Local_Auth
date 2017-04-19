@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');
+require('mongoose-type-email');
 var bcrypt = require('bcryptjs');
 
 var User = new mongoose.Schema({
     username: { type: String }   // <-- This line only needed if you want to use the login with username option in passport.js
   , name: { type: String }
-  , email: { type: String, index: true, trim: true }
+  , email: { type: mongoose.SchemaTypes.Email, index: true, trim: true }
   , password: { type: String }
 });
 
